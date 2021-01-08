@@ -14,7 +14,7 @@ export default {
       type: ''
     }
   }
-} as Meta;
+} as Meta<ButtonProps>;
 
 export const Default: Story<ButtonProps> = (args) => <Button {...args} />;
 
