@@ -1,6 +1,13 @@
 import Button from 'components/Button';
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon';
 
 import { Wrapper, Image, Caption, Title, Subtitle } from './styles';
+
+type BannerRibbonProps = {
+  text: string;
+  size: RibbonSizes;
+  color: RibbonColors;
+};
 
 export type BannerProps = {
   img: string;
@@ -8,6 +15,9 @@ export type BannerProps = {
   subtitle: string;
   buttonLabel: string;
   buttonLink: string;
+  ribbon?: string;
+  ribbonSize?: RibbonSizes;
+  ribbonColor?: RibbonColors;
 };
 
 const Banner: React.FC<BannerProps> = ({
@@ -15,7 +25,10 @@ const Banner: React.FC<BannerProps> = ({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  ribbon,
+  ribbonSize = 'normal',
+  ribbonColor = 'primary'
 }) => (
   <Wrapper>
     <Image src={img} role="img" aria-label={title} />
@@ -27,6 +40,12 @@ const Banner: React.FC<BannerProps> = ({
         {buttonLabel}
       </Button>
     </Caption>
+
+    {!!ribbon && (
+      <Ribbon size={ribbonSize} color={ribbonColor}>
+        {ribbon}
+      </Ribbon>
+    )}
   </Wrapper>
 );
 
