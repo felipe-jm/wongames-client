@@ -3,12 +3,6 @@ import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon';
 
 import { Wrapper, Image, Caption, Title, Subtitle } from './styles';
 
-type BannerRibbonProps = {
-  text: string;
-  size: RibbonSizes;
-  color: RibbonColors;
-};
-
 export type BannerProps = {
   img: string;
   title: string;
