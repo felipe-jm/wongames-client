@@ -10,7 +10,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={Theme}>
       <Head>
-        <title>Next.js - Boilerplate</title>
+        <title>Won Games</title>
+        <link rel="shortcut icon" href="/img/logo-gh.svg" />
+        <link rel="apple-touch-icon" href="/img/logo-gh.svg" />
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="description"
