@@ -9,6 +9,7 @@ type ButtonTypes =
 export type ButtonProps = {
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
+  minimal?: boolean;
   icon?: JSX.Element;
   as?: React.ElementType;
   onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -16,6 +17,7 @@ export type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  minimal = false,
   icon,
   as,
   size = 'medium',
@@ -27,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}
+    minimal={minimal}
     {...props}
   >
     {!!icon && icon}
