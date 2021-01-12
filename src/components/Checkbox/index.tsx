@@ -4,26 +4,29 @@ import * as S from './styles';
 
 export type CheckboxProps = {
   onCheck?: (status: boolean) => void;
+  isChecked?: boolean;
   label?: string;
   labelFor?: string;
   labelColor?: 'white' | 'black';
+  value?: string | ReadonlyArray<string> | number;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Checkbox: React.FC<CheckboxProps> = ({
+  isChecked = false,
   onCheck,
   label,
   labelFor = '',
-  labelColor = 'white'
+  labelColor = 'white',
+  value,
+  ...props
 }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(isChecked);
 
   const onChange = useCallback(() => {
     const status = !checked;
     setChecked(status);
 
-    if (onCheck) {
-      onCheck(status);
-    }
+    !!onCheck && onCheck(status);
   }, [checked, onCheck]);
 
   return (
@@ -33,6 +36,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
         type="checkbox"
         onChange={onChange}
         checked={checked}
+        value={value}
+        {...props}
       />
       {!!label && (
         <S.Label htmlFor={labelFor} labelColor={labelColor}>
