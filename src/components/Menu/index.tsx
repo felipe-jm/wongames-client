@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search';
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart';
@@ -57,7 +59,9 @@ const Menu: React.FC<MenuProps> = ({ username }) => {
 
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button>Sign in</Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </MenuGroup>
@@ -78,13 +82,17 @@ const Menu: React.FC<MenuProps> = ({ username }) => {
 
         {!username && (
           <RegisterBox>
-            <Button fullWidth size="large">
-              Log in now
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button fullWidth size="large">
+                Sign in now
+              </Button>
+            </Link>
             <span>or</span>
-            <CreateAccount href="#" title="Sign Up">
-              Sign Up
-            </CreateAccount>
+            <Link href="/sign-up" passHref>
+              <CreateAccount href="#" title="Sign Up">
+                Sign Up
+              </CreateAccount>
+            </Link>
           </RegisterBox>
         )}
       </MenuFull>
