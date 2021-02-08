@@ -14,7 +14,7 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument();
   });
 
-  it('should render the open/close mobile menu', () => {
+  it('should open/close mobile menu', () => {
     renderWithTheme(<Menu />);
 
     // select our menuFull
