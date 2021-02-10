@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
 import Home, { HomeTemplateProps } from 'templates/Home';
 
@@ -8,7 +8,7 @@ import HightlightMock from 'components/Highlight/mock';
 
 const Index: NextPage<HomeTemplateProps> = (props) => <Home {...props} />;
 
-export function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
   return {
     props: {
       banners: bannersMock,
@@ -16,12 +16,12 @@ export function getStaticProps() {
       mostPopularHighlight: HightlightMock,
       mostPopularGames: gamesMock,
       upcomingGames: gamesMock,
-      upcommingHighlight: HightlightMock,
-      upcommingMoreGames: gamesMock,
+      upcomingHighlight: HightlightMock,
+      upcomingMoreGames: gamesMock,
       freeGames: gamesMock,
       freeHighlight: HightlightMock
     }
   };
-}
+};
 
 export default Index;

@@ -16,8 +16,8 @@ const props: HomeTemplateProps = {
   mostPopularHighlight: HightlightMock,
   mostPopularGames: gamesMock,
   upcomingGames: gamesMock,
-  upcommingHighlight: HightlightMock,
-  upcommingMoreGames: gamesMock,
+  upcomingHighlight: HightlightMock,
+  upcomingMoreGames: gamesMock,
   freeGames: gamesMock,
   freeHighlight: HightlightMock
 };

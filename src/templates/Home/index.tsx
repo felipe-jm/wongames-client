@@ -2,7 +2,7 @@ import Base from 'templates/Base';
 
 import { BannerProps } from 'components/Banner';
 import BannerSlider from 'components/BannerSlider';
-import Container from 'components/Container';
+import { Container } from 'components/Container';
 import { GameCardProps } from 'components/GameCard';
 import { HighlightProps } from 'components/Highlight';
 import Showcase from 'components/Showcase';
@@ -15,8 +15,8 @@ export type HomeTemplateProps = {
   mostPopularHighlight: HighlightProps;
   mostPopularGames: GameCardProps[];
   upcomingGames: GameCardProps[];
-  upcommingHighlight: HighlightProps;
-  upcommingMoreGames: GameCardProps[];
+  upcomingHighlight: HighlightProps;
+  upcomingMoreGames: GameCardProps[];
   freeGames: GameCardProps[];
   freeHighlight: HighlightProps;
 };
@@ -27,8 +27,8 @@ const Home: React.FC<HomeTemplateProps> = ({
   mostPopularHighlight,
   mostPopularGames,
   upcomingGames,
-  upcommingHighlight,
-  upcommingMoreGames,
+  upcomingHighlight,
+  upcomingMoreGames,
   freeGames,
   freeHighlight
 }) => (
@@ -52,7 +52,7 @@ const Home: React.FC<HomeTemplateProps> = ({
     <S.SectionUpcoming>
       <Showcase title="Upcoming" games={upcomingGames} />
 
-      <Showcase highlight={upcommingHighlight} games={upcommingMoreGames} />
+      <Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
     </S.SectionUpcoming>
 
     <Showcase title="Free games" highlight={freeHighlight} games={freeGames} />
