@@ -39,13 +39,21 @@ const Menu: React.FC<MenuProps> = ({ username }) => {
       </MediaMatch>
 
       <LogoWrapper>
-        <Logo hideOnMobile />
+        <Link href="/" passHref>
+          <a>
+            <Logo hideOnMobile />
+          </a>
+        </Link>
       </LogoWrapper>
 
       <MediaMatch greaterThan="medium">
         <MenuNav>
-          <MenuLink href="#">Sobre</MenuLink>
-          <MenuLink href="#">Explore</MenuLink>
+          <Link href="/" passHref>
+            <MenuLink>Home</MenuLink>
+          </Link>
+          <Link href="/" passHref>
+            <MenuLink>Explore</MenuLink>
+          </Link>
         </MenuNav>
       </MediaMatch>
 
@@ -70,8 +78,13 @@ const Menu: React.FC<MenuProps> = ({ username }) => {
       <MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <MenuNav>
-          <MenuLink href="#">Sobre</MenuLink>
-          <MenuLink href="#">Explore</MenuLink>
+          <Link href="/" passHref>
+            <MenuLink href="#">Home</MenuLink>
+          </Link>
+
+          <Link href="/" passHref>
+            <MenuLink href="#">Explore</MenuLink>
+          </Link>
 
           {!!username && (
             <>
