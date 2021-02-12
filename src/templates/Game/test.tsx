@@ -2,7 +2,6 @@ import { screen } from '@testing-library/react';
 
 import galleryMock from 'components/Gallery/mock';
 import gamesMock from 'components/GameCardSlider/mock';
-import { GameDetailsProps } from 'components/GameDetails';
 import gameDetailsMock from 'components/GameDetails/mock';
 import gameInfoMock from 'components/GameInfo/mock';
 import highlightMock from 'components/Highlight/mock';
@@ -16,7 +15,7 @@ const props: GameTemplateProps = {
   gameInfo: gameInfoMock,
   gallery: galleryMock,
   description: `<h1>Custom HTML</h1>`,
-  details: gameDetailsMock as GameDetailsProps,
+  details: gameDetailsMock,
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
   recommendedGames: gamesMock

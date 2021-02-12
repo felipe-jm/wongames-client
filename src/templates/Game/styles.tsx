@@ -34,7 +34,7 @@ export const Cover = styled.div<CoverProps>`
   `}
 `;
 
-const Section = styled(Container).attrs({ as: 'section' })`
+export const Section = styled(Container).attrs({ as: 'section' })`
   ${({ theme }) => css`
     margin-bottom: ${theme.spacings.xlarge};
 

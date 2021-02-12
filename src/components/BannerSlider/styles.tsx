@@ -49,6 +49,7 @@ export const Wrapper = styled.section`
         height: 100%;
         top: 0;
         margin: 0;
+
         li {
           margin: ${theme.spacings.xxsmall} 0;
         }
