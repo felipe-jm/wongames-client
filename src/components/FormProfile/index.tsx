@@ -34,9 +34,9 @@ const FormProfile: React.FC = () => (
         placeholder="Type your new password"
         label="Password"
       />
-    </S.Form>
 
-    <Button size="large">Save</Button>
+      <Button size="large">Save</Button>
+    </S.Form>
   </>
 );
 

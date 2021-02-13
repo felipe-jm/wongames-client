@@ -12,7 +12,7 @@ import * as S from './styles';
 export enum ProfileLinks {
   Me = '/profile/me',
   Cards = '/profile/cards',
-  Orders = '/profile/order'
+  Orders = '/profile/orders'
 }
 
 export type ProfileMenuProps = {
