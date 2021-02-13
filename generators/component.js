@@ -1,6 +1,6 @@
 module.exports = function (plop) {
-  plop.setGenerator('controller', {
-    description: 'application controller',
+  plop.setGenerator('component', {
+    description: 'component',
     prompts: [
       {
         type: 'input',
