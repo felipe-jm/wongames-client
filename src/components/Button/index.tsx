@@ -12,7 +12,6 @@ export type ButtonProps = {
   minimal?: boolean;
   icon?: JSX.Element;
   as?: React.ElementType;
-  onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void;
 } & ButtonTypes;
 
 const Button: React.ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
