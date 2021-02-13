@@ -4,14 +4,15 @@ import Menu, { MenuProps } from '.';
 
 export default {
   title: 'Menu',
-  component: Menu
-} as Meta<MenuProps>;
-
-export const Default: Story<MenuProps> = (args) => <Menu {...args} />;
-
-Default.parameters = {
+  component: Menu,
   layout: 'fullscreen',
   background: {
     default: 'won-dark'
   }
-};
+} as Meta<MenuProps>;
+
+export const Default: Story<MenuProps> = (args) => <Menu {...args} />;
+
+export const Logged: Story<MenuProps> = (args) => (
+  <Menu {...args} username="Felipe" />
+);

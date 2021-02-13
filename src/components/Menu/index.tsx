@@ -4,24 +4,16 @@ import { useState } from 'react';
 
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search';
-import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart';
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2';
 
 import Button from 'components/Button';
+import CartDropdown from 'components/CartDropdown';
+import CartIcon from 'components/CartIcon';
 import Logo from 'components/Logo';
 import MediaMatch from 'components/MediaMatch';
+import UserDropdown from 'components/UserDropdown';
 
-import {
-  Wrapper,
-  LogoWrapper,
-  IconWrapper,
-  MenuGroup,
-  MenuFull,
-  MenuNav,
-  MenuLink,
-  RegisterBox,
-  CreateAccount
-} from './styles';
+import * as S from './styles';
 
 export type MenuProps = {
   username?: string;
@@ -31,86 +23,101 @@ const Menu: React.FC<MenuProps> = ({ username }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <MediaMatch lessThan="medium">
-        <IconWrapper onClick={() => setIsOpen(true)}>
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
           <MenuIcon aria-label="Open Menu" />
-        </IconWrapper>
+        </S.IconWrapper>
       </MediaMatch>
 
-      <LogoWrapper>
+      <S.LogoWrapper>
         <Link href="/" passHref>
           <a>
             <Logo hideOnMobile />
           </a>
         </Link>
-      </LogoWrapper>
+      </S.LogoWrapper>
 
       <MediaMatch greaterThan="medium">
-        <MenuNav>
+        <S.MenuNav>
           <Link href="/" passHref>
-            <MenuLink>Home</MenuLink>
+            <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/" passHref>
-            <MenuLink>Explore</MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink>Explore</S.MenuLink>
           </Link>
-        </MenuNav>
+        </S.MenuNav>
       </MediaMatch>
 
-      <MenuGroup>
-        <IconWrapper>
+      <S.MenuGroup>
+        <S.IconWrapper>
           <SearchIcon aria-label="search" />
-        </IconWrapper>
+        </S.IconWrapper>
 
-        <IconWrapper>
-          <ShoppingCartIcon aria-label="open shopping cart" />
-        </IconWrapper>
-
-        {!username && (
+        <S.IconWrapper>
           <MediaMatch greaterThan="medium">
+            <CartDropdown />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart">
+              <a>
+                <CartIcon />
+              </a>
+            </Link>
+          </MediaMatch>
+        </S.IconWrapper>
+
+        <MediaMatch greaterThan="medium">
+          {!username ? (
             <Link href="/sign-in" passHref>
               <Button as="a">Sign in</Button>
             </Link>
-          </MediaMatch>
-        )}
-      </MenuGroup>
+          ) : (
+            <UserDropdown username={username} />
+          )}
+        </MediaMatch>
+      </S.MenuGroup>
 
-      <MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
+      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
-        <MenuNav>
+        <S.MenuNav>
           <Link href="/" passHref>
-            <MenuLink href="#">Home</MenuLink>
+            <S.MenuLink>Home</S.MenuLink>
           </Link>
 
-          <Link href="/" passHref>
-            <MenuLink href="#">Explore</MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink>Explore</S.MenuLink>
           </Link>
 
           {!!username && (
             <>
-              <MenuLink href="#">My account</MenuLink>
-              <MenuLink href="#">Wishlist</MenuLink>
+              <Link href="/profile/me" passHref>
+                <S.MenuLink>My profile</S.MenuLink>
+              </Link>
+              <Link href="/wishlist" passHref>
+                <S.MenuLink>Wishlist</S.MenuLink>
+              </Link>
             </>
           )}
-        </MenuNav>
+        </S.MenuNav>
 
         {!username && (
-          <RegisterBox>
+          <S.RegisterBox>
             <Link href="/sign-in" passHref>
-              <Button fullWidth size="large">
+              <Button as="a" fullWidth size="large">
                 Sign in now
               </Button>
             </Link>
             <span>or</span>
             <Link href="/sign-up" passHref>
-              <CreateAccount href="#" title="Sign Up">
+              <S.CreateAccount as="a" title="Sign Up">
                 Sign Up
-              </CreateAccount>
+              </S.CreateAccount>
             </Link>
-          </RegisterBox>
+          </S.RegisterBox>
         )}
-      </MenuFull>
-    </Wrapper>
+      </S.MenuFull>
+    </S.Wrapper>
   );
 };
 
