@@ -36,7 +36,7 @@ const Cart: React.FC<CartTemplateProps> = ({
           My cart
         </Heading>
 
-        {items.length ? (
+        {items?.length ? (
           <S.Content>
             <CartList items={items} total={total} />
 
