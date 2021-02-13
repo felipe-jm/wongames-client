@@ -79,7 +79,7 @@ exports[`<TextField /> should render with error 1`] = `
 >
   <label
     class="c1 c2"
-    for="TextField"
+    for="Label"
   >
     TextField
   </label>
@@ -109,6 +109,7 @@ exports[`<TextField /> should render with error 1`] = `
     </div>
     <input
       class="c8"
+      id="Label"
       type="text"
       value=""
     />

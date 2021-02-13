@@ -8,9 +8,7 @@ import TextField from '.';
 
 describe('<TextField />', () => {
   it('should render with label', () => {
-    renderWithTheme(
-      <TextField label="I'm a label" labelFor="Field" id="Field" />
-    );
+    renderWithTheme(<TextField label="I'm a label" name="Label" />);
 
     expect(screen.getByLabelText("I'm a label")).toBeInTheDocument();
   });
@@ -65,12 +63,7 @@ describe('<TextField />', () => {
   it('should change its value when typing', async () => {
     const onInput = jest.fn();
     renderWithTheme(
-      <TextField
-        onInput={onInput}
-        label="I'm a label"
-        labelFor="Field"
-        id="Field"
-      />
+      <TextField onInput={onInput} label="I'm a label" name="Label" />
     );
 
     const input = screen.getByRole('textbox');
@@ -89,7 +82,7 @@ describe('<TextField />', () => {
     const { container } = renderWithTheme(
       <TextField
         label="TextField"
-        labelFor="TextField"
+        name="Label"
         error="Ops!"
         icon={<Email data-testid="icon" />}
       />
@@ -100,9 +93,7 @@ describe('<TextField />', () => {
   });
 
   it('should be accessible using tab key', async () => {
-    renderWithTheme(
-      <TextField label="I'm a label" labelFor="Field" id="Field" />
-    );
+    renderWithTheme(<TextField label="I'm a label" name="Label" />);
 
     const input = screen.getByRole('textbox');
     expect(document.body).toHaveFocus();
