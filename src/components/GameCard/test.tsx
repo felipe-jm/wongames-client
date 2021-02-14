@@ -11,7 +11,7 @@ const props: GameCardProps = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$ 235,00',
+  price: 235,
   onFav: jest.fn()
 };
 
@@ -43,7 +43,7 @@ describe('<GameCard />', () => {
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />);
 
-    const price = screen.getByText(props.price);
+    const price = screen.getByText('$235.00');
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' });
 
@@ -51,10 +51,10 @@ describe('<GameCard />', () => {
   });
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 200,00" />);
+    renderWithTheme(<GameCard {...props} promotionalPrice={200} />);
 
-    const originalPrice = screen.getByText(props.price);
-    const withDiscountPrice = screen.getByText('R$ 200,00');
+    const originalPrice = screen.getByText('$235.00');
+    const withDiscountPrice = screen.getByText('$200.00');
 
     expect(originalPrice).toHaveStyle({ textDecoration: 'line-through' });
 
