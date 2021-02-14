@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 
 import Home, { HomeTemplateProps } from 'templates/Home';
 
@@ -8,7 +8,7 @@ import HightlightMock from 'components/Highlight/mock';
 
 const Index: NextPage<HomeTemplateProps> = (props) => <Home {...props} />;
 
-export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
+export const getServerSideProps: GetServerSideProps<HomeTemplateProps> = async () => {
   return {
     props: {
       banners: bannersMock,
