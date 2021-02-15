@@ -93,4 +93,14 @@ describe('<GameCard />', () => {
     expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' });
     expect(ribbon).toBeInTheDocument();
   });
+
+  it('should render a ribbon and show free when price or promotional price is zero', () => {
+    renderWithTheme(<GameCard {...props} price={0} />);
+
+    const freeRibbon = screen.getByText(/free/i);
+
+    expect(freeRibbon).toHaveStyle({ backgroundColor: theme.colors.secondary });
+    expect(freeRibbon).toHaveStyle({ height: '3.6rem', fontSize: '1.4rem' });
+    expect(freeRibbon).toBeInTheDocument();
+  });
 });

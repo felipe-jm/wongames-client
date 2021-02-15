@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { useMemo } from 'react';
+
 import {
   AddShoppingCart,
   Favorite,
@@ -39,43 +41,62 @@ const GameCard: React.FC<GameCardProps> = ({
   ribbonSize = 'small',
   ribbonColor = 'primary',
   onFav
-}) => (
-  <S.Wrapper>
-    {!!ribbon && (
-      <Ribbon size={ribbonSize} color={ribbonColor}>
-        {ribbon}
-      </Ribbon>
-    )}
+}) => {
+  const isFree = useMemo(() => price === 0 || promotionalPrice === 0, [
+    price,
+    promotionalPrice
+  ]);
 
-    <Link href={`game/${slug}`} passHref>
-      <S.ImageBox>
-        <img src={img} alt={title} />
-      </S.ImageBox>
-    </Link>
+  return (
+    <S.Wrapper>
+      {!!ribbon && (
+        <Ribbon size={ribbonSize} color={ribbonColor}>
+          {ribbon}
+        </Ribbon>
+      )}
 
-    <S.Content>
+      {promotionalPrice === 0 ||
+        (price === 0 && (
+          <Ribbon size="normal" color="secondary">
+            FREE
+          </Ribbon>
+        ))}
+
       <Link href={`game/${slug}`} passHref>
-        <S.Info>
-          <S.Title>{title}</S.Title>
-          <S.Developer>{developer}</S.Developer>
-        </S.Info>
+        <S.ImageBox>
+          <img src={img} alt={title} />
+        </S.ImageBox>
       </Link>
-      <S.FavButton role="button" onClick={onFav}>
-        {favorite ? (
-          <Favorite aria-label="Remove from Wishlist" />
-        ) : (
-          <FavoriteBorder aria-label="Add to Wishlist" />
-        )}
-      </S.FavButton>
-      <S.BuyBox>
-        {!!promotionalPrice && (
-          <S.Price isPromotional>{formatPrice(price)}</S.Price>
-        )}
-        <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
-        <Button icon={<AddShoppingCart />} size="small" />
-      </S.BuyBox>
-    </S.Content>
-  </S.Wrapper>
-);
+
+      <S.Content>
+        <Link href={`game/${slug}`} passHref>
+          <S.Info>
+            <S.Title>{title}</S.Title>
+            <S.Developer>{developer}</S.Developer>
+          </S.Info>
+        </Link>
+        <S.FavButton role="button" onClick={onFav}>
+          {favorite ? (
+            <Favorite aria-label="Remove from Wishlist" />
+          ) : (
+            <FavoriteBorder aria-label="Add to Wishlist" />
+          )}
+        </S.FavButton>
+        <S.BuyBox>
+          {!isFree && (
+            <>
+              {!!promotionalPrice && (
+                <S.Price isPromotional>{formatPrice(price)}</S.Price>
+              )}
+              <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
+            </>
+          )}
+
+          <Button icon={<AddShoppingCart />} size="small" />
+        </S.BuyBox>
+      </S.Content>
+    </S.Wrapper>
+  );
+};
 
 export default GameCard;
