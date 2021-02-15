@@ -11,6 +11,7 @@ import Cart, { CartTemplateProps } from '.';
 const props: CartTemplateProps = {
   items: itemsMock,
   total: '$ 430,00',
+  recommendedTitle: 'You may like these games',
   recommendedHighlight: highlightMock,
   recommendedGames: gamesMock
 };

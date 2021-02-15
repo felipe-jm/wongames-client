@@ -15,12 +15,14 @@ import Showcase from 'components/Showcase';
 import * as S from './styles';
 
 export type CartTemplateProps = {
+  recommendedTitle: string;
   recommendedGames: GameCardProps[];
   recommendedHighlight: HighlightProps;
 } & CartListProps &
   Pick<PaymentOptionsProps, 'cards'>;
 
 const Cart: React.FC<CartTemplateProps> = ({
+  recommendedTitle,
   recommendedGames,
   recommendedHighlight,
   items,
@@ -54,7 +56,7 @@ const Cart: React.FC<CartTemplateProps> = ({
       </Container>
 
       <Showcase
-        title="You may like these games"
+        title={recommendedTitle || 'You may like these games'}
         games={recommendedGames}
         highlight={recommendedHighlight}
       />
