@@ -6,16 +6,22 @@ import { Container } from 'components/Container';
 export const Main = styled(Container)`
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
-      display: grid;
-      grid-template-columns: 26rem 1fr;
-      gap: ${theme.grid.gutter};
+    display: grid;
+    grid-template-columns: 26rem 1fr;
+    gap: ${theme.grid.gutter};
     `}
   `}
 `;
 
 export const ShowMore = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+`;
+
+export const ShowMoreButton = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -27,9 +33,6 @@ export const ShowMore = styled.div`
     }
   `}
 `;
-
-export const LoadingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ShowMoreLoading = styled.img`
+  width: 4rem;
 `;

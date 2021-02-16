@@ -1,6 +1,8 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { FilterList, Close } from '@styled-icons/material-outlined';
+import xor from 'lodash.xor';
+import { ParsedUrlQueryInput } from 'querystring';
 
 import Button from 'components/Button';
 import Checkbox from 'components/Checkbox';
@@ -17,13 +19,11 @@ type Field = {
 export type ItemProps = {
   title: string;
   name: string;
-  type: 'checkbox' | 'radio';
+  type: string;
   fields: Field[];
 };
 
-type Values = {
-  [field: string]: boolean | string;
-};
+type Values = ParsedUrlQueryInput;
 
 export type ExploreSidebarProps = {
   items: ItemProps[];
@@ -36,17 +36,33 @@ const ExploreSidebar: React.FC<ExploreSidebarProps> = ({
   initialValues = {},
   onFilter
 }) => {
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState<Values>(initialValues);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleChange = useCallback((name: string, value: string | boolean) => {
+  useEffect(() => {
+    onFilter(values);
+    // this method comes from another template
+    // that we don't have access
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values]);
+
+  const handleRadio = useCallback((name: string, value: string | boolean) => {
     setValues((oldValues) => ({ ...oldValues, [name]: value }));
   }, []);
 
-  const handleFilter = useCallback(() => {
-    onFilter(values);
-    setIsOpen(false);
-  }, [onFilter, values]);
+  const handleCheckbox = useCallback(
+    (name: string, value: string) => {
+      const currentList = (values[name] as []) || [];
+
+      setValues((oldValues) => ({
+        ...oldValues,
+        [name]: xor(currentList, [value])
+      }));
+    },
+    [values]
+  );
+
+  const handleFilterMenu = useCallback(() => setIsOpen(false), []);
 
   return (
     <S.Wrapper isOpen={isOpen}>
@@ -70,8 +86,10 @@ const ExploreSidebar: React.FC<ExploreSidebarProps> = ({
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={!!values[field.name]}
-                  onCheck={(value) => handleChange(field.name, value)}
+                  isChecked={(values[item.name] as string[])?.includes(
+                    field.name
+                  )}
+                  onCheck={() => handleCheckbox(item.name, field.name)}
                 />
               ))}
 
@@ -84,8 +102,10 @@ const ExploreSidebar: React.FC<ExploreSidebarProps> = ({
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={field.name === values[item.name]}
-                  onChange={() => handleChange(item.name, field.name)}
+                  defaultChecked={
+                    String(field.name) === String(values[item.name])
+                  }
+                  onChange={() => handleRadio(item.name, field.name)}
                 />
               ))}
           </S.Items>
@@ -93,7 +113,7 @@ const ExploreSidebar: React.FC<ExploreSidebarProps> = ({
       </S.Content>
 
       <S.Footer>
-        <Button fullWidth size="medium" onClick={handleFilter}>
+        <Button fullWidth size="medium" onClick={handleFilterMenu}>
           Filter
         </Button>
       </S.Footer>

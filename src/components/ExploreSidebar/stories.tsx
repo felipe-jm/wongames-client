@@ -7,7 +7,8 @@ export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
   args: {
-    items
+    items,
+    onFilter: () => console.log('filter')
   },
   parameters: {
     backgrounds: {
@@ -27,7 +28,7 @@ export const WithInitialValues: Story<ExploreSidebarProps> = (args) => (
     <ExploreSidebar
       {...args}
       initialValues={{
-        platforms: 'linux',
+        platforms: ['windows', 'linux'],
         sort_by: 'low-to-high'
       }}
     />
