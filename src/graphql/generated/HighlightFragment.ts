@@ -14,7 +14,7 @@ export interface HighlightFragment_background {
   url: string;
 }
 
-export interface HighlightFragment_floatimage {
+export interface HighlightFragment_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -24,7 +24,7 @@ export interface HighlightFragment {
   title: string;
   subtitle: string;
   background: HighlightFragment_background | null;
-  floatimage: HighlightFragment_floatimage | null;
+  floatImage: HighlightFragment_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;

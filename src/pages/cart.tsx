@@ -8,7 +8,7 @@ import itemsMock from 'components/CartList/mock';
 import cardsMock from 'components/PaymentOptions/mock';
 
 import { initializeApollo } from 'utils/apollo';
-import { gamesMapper, highlightsMapper } from 'utils/mappers';
+import { gamesMapper, highlightMapper } from 'utils/mappers';
 
 const CartPage: NextPage<CartTemplateProps> = (props) => <Cart {...props} />;
 
@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       cards: cardsMock,
       recommendedTitle: data.recommended?.section?.title,
       recommendedGames: gamesMapper(data.recommended?.section?.games),
-      recommendedHighlight: highlightsMapper(
+      recommendedHighlight: highlightMapper(
         data.recommended?.section?.highlight
       )
     }

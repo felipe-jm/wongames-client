@@ -34,7 +34,7 @@ export interface QueryUpcoming_showcase_upcomingGames_highlight_background {
   url: string;
 }
 
-export interface QueryUpcoming_showcase_upcomingGames_highlight_floatimage {
+export interface QueryUpcoming_showcase_upcomingGames_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -44,7 +44,7 @@ export interface QueryUpcoming_showcase_upcomingGames_highlight {
   title: string;
   subtitle: string;
   background: QueryUpcoming_showcase_upcomingGames_highlight_background | null;
-  floatimage: QueryUpcoming_showcase_upcomingGames_highlight_floatimage | null;
+  floatImage: QueryUpcoming_showcase_upcomingGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;

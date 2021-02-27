@@ -101,7 +101,7 @@ export interface QueryHome_sections_newGames_highlight_background {
   url: string;
 }
 
-export interface QueryHome_sections_newGames_highlight_floatimage {
+export interface QueryHome_sections_newGames_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -111,7 +111,7 @@ export interface QueryHome_sections_newGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_newGames_highlight_background | null;
-  floatimage: QueryHome_sections_newGames_highlight_floatimage | null;
+  floatImage: QueryHome_sections_newGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -128,7 +128,7 @@ export interface QueryHome_sections_popularGames_highlight_background {
   url: string;
 }
 
-export interface QueryHome_sections_popularGames_highlight_floatimage {
+export interface QueryHome_sections_popularGames_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -138,7 +138,7 @@ export interface QueryHome_sections_popularGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_popularGames_highlight_background | null;
-  floatimage: QueryHome_sections_popularGames_highlight_floatimage | null;
+  floatImage: QueryHome_sections_popularGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -176,7 +176,7 @@ export interface QueryHome_sections_upcomingGames_highlight_background {
   url: string;
 }
 
-export interface QueryHome_sections_upcomingGames_highlight_floatimage {
+export interface QueryHome_sections_upcomingGames_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -186,7 +186,7 @@ export interface QueryHome_sections_upcomingGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_upcomingGames_highlight_background | null;
-  floatimage: QueryHome_sections_upcomingGames_highlight_floatimage | null;
+  floatImage: QueryHome_sections_upcomingGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -203,7 +203,7 @@ export interface QueryHome_sections_freeGames_highlight_background {
   url: string;
 }
 
-export interface QueryHome_sections_freeGames_highlight_floatimage {
+export interface QueryHome_sections_freeGames_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -213,7 +213,7 @@ export interface QueryHome_sections_freeGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_freeGames_highlight_background | null;
-  floatimage: QueryHome_sections_freeGames_highlight_floatimage | null;
+  floatImage: QueryHome_sections_freeGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;

@@ -17,7 +17,7 @@ import { QUERY_UPCOMING } from 'graphql/queries/upcoming';
 import Game, { GameTemplateProps } from 'templates/Game';
 
 import { initializeApollo } from 'utils/apollo';
-import { gamesMapper, highlightsMapper } from 'utils/mappers';
+import { gamesMapper, highlightMapper } from 'utils/mappers';
 
 const apolloClient = initializeApollo();
 
@@ -99,7 +99,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
       upcomingTitle: upcomingSection.showcase?.upcomingGames?.title,
       upcomingGames: gamesMapper(upcomingSection.upcomingGames),
-      upcomingHighlight: highlightsMapper(
+      upcomingHighlight: highlightMapper(
         upcomingSection.showcase?.upcomingGames?.highlight
       ),
       recommendedTitle: recommendedSection.recommended?.section?.title,

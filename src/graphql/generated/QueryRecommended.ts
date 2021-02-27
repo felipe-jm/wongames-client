@@ -14,7 +14,7 @@ export interface QueryRecommended_recommended_section_highlight_background {
   url: string;
 }
 
-export interface QueryRecommended_recommended_section_highlight_floatimage {
+export interface QueryRecommended_recommended_section_highlight_floatImage {
   __typename: "UploadFile";
   url: string;
 }
@@ -24,7 +24,7 @@ export interface QueryRecommended_recommended_section_highlight {
   title: string;
   subtitle: string;
   background: QueryRecommended_recommended_section_highlight_background | null;
-  floatimage: QueryRecommended_recommended_section_highlight_floatimage | null;
+  floatImage: QueryRecommended_recommended_section_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;

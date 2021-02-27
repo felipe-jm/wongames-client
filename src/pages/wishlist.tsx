@@ -5,7 +5,7 @@ import { QUERY_RECOMMENDED } from 'graphql/queries/recommended';
 import Wishlist, { WishlistTemplateProps } from 'templates/Wishlist';
 
 import { initializeApollo } from 'utils/apollo';
-import { gamesMapper, highlightsMapper } from 'utils/mappers';
+import { gamesMapper, highlightMapper } from 'utils/mappers';
 
 const WishistPage: NextPage<WishlistTemplateProps> = (props) => (
   <Wishlist {...props} />
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
       games: gamesMapper(data.recommended?.section?.games),
       recommendedTitle: data.recommended?.section?.title,
       recommendedGames: gamesMapper(data.recommended?.section?.games),
-      recommendedHighlight: highlightsMapper(
+      recommendedHighlight: highlightMapper(
         data.recommended?.section?.highlight
       )
     }

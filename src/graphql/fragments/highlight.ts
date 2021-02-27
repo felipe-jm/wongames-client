@@ -7,7 +7,7 @@ export const HighlightFragment = gql`
     background {
       url
     }
-    floatimage {
+    floatImage {
       url
     }
     buttonLabel
