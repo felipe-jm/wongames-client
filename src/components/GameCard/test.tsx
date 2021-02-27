@@ -1,6 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
-
-import { renderWithTheme } from 'utils/tests/helpers';
+import { screen, render, fireEvent } from 'utils/test-utils';
 
 import theme from 'styles/theme';
 
@@ -17,7 +15,7 @@ const props: GameCardProps = {
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<GameCard {...props} />);
+    render(<GameCard {...props} />);
 
     expect(
       screen.getByRole('heading', { name: props.title })
@@ -41,7 +39,7 @@ describe('<GameCard />', () => {
   });
 
   it('should render price in label', () => {
-    renderWithTheme(<GameCard {...props} />);
+    render(<GameCard {...props} />);
 
     const price = screen.getByText('$235.00');
 
@@ -51,7 +49,7 @@ describe('<GameCard />', () => {
   });
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...props} promotionalPrice={200} />);
+    render(<GameCard {...props} promotionalPrice={200} />);
 
     const originalPrice = screen.getByText('$235.00');
     const withDiscountPrice = screen.getByText('$200.00');
@@ -64,13 +62,13 @@ describe('<GameCard />', () => {
   });
 
   it('should render a filled favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...props} favorite />);
+    render(<GameCard {...props} favorite />);
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument();
   });
 
   it('should call onFav function when favorite is clicked', () => {
-    renderWithTheme(<GameCard {...props} favorite onFav={props.onFav} />);
+    render(<GameCard {...props} favorite onFav={props.onFav} />);
 
     fireEvent.click(screen.getAllByRole('button')[0]);
 
@@ -78,7 +76,7 @@ describe('<GameCard />', () => {
   });
 
   it('should render a Ribbon', () => {
-    renderWithTheme(
+    render(
       <GameCard
         {...props}
         ribbon="My Ribbon"
@@ -95,7 +93,7 @@ describe('<GameCard />', () => {
   });
 
   it('should render a ribbon and show free when price or promotional price is zero', () => {
-    renderWithTheme(<GameCard {...props} price={0} />);
+    render(<GameCard {...props} price={0} />);
 
     const freeRibbon = screen.getByText(/free/i);
 

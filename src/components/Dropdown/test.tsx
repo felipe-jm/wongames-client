@@ -1,20 +1,19 @@
-import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithTheme } from 'utils/tests/helpers';
+import { screen, render } from 'utils/test-utils';
 
 import Dropdown from '.';
 
 describe('<Dropdown />', () => {
   it('should render title and children', () => {
-    renderWithTheme(<Dropdown title="Title">Children</Dropdown>);
+    render(<Dropdown title="Title">Children</Dropdown>);
 
     expect(screen.getByText(/title/i)).toBeInTheDocument();
     expect(screen.getByText(/children/i)).toBeInTheDocument();
   });
 
   it('should handle open/close dropdown', () => {
-    renderWithTheme(<Dropdown title="Title">Children</Dropdown>);
+    render(<Dropdown title="Title">Children</Dropdown>);
 
     const content = screen.getByText(/children/i);
 
@@ -28,7 +27,7 @@ describe('<Dropdown />', () => {
   });
 
   it('should handle open/close dropdown when clicking on overlay', () => {
-    renderWithTheme(<Dropdown title="Title">Children</Dropdown>);
+    render(<Dropdown title="Title">Children</Dropdown>);
 
     const content = screen.getByText(/children/i);
 

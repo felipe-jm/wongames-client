@@ -1,9 +1,8 @@
 import 'match-media-mock';
-import { screen } from '@testing-library/react';
 
 import { GameCardProps } from 'components/GameCard';
 
-import { renderWithTheme } from 'utils/tests/helpers';
+import { screen, render } from 'utils/test-utils';
 
 import theme from 'styles/theme';
 
@@ -53,17 +52,17 @@ const items: GameCardProps[] = [
 ];
 describe('<GameCardSlider />', () => {
   it('should render slider', () => {
-    const { container } = renderWithTheme(<GameCardSlider items={items} />);
+    const { container } = render(<GameCardSlider items={items} />);
     expect(container.querySelector('.slick-slider')).toBeInTheDocument();
   });
 
   it('should render slider with 4 active items', () => {
-    const { container } = renderWithTheme(<GameCardSlider items={items} />);
+    const { container } = render(<GameCardSlider items={items} />);
     expect(container.querySelectorAll('.slick-active')).toHaveLength(4);
   });
 
   it('should render white arrows when color passed', () => {
-    renderWithTheme(<GameCardSlider items={items} color="white" />);
+    render(<GameCardSlider items={items} color="white" />);
 
     expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
       color: theme.colors.white

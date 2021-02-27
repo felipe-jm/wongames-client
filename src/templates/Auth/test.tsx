@@ -1,13 +1,11 @@
-import { screen } from '@testing-library/react';
-
-import { renderWithTheme } from 'utils/tests/helpers';
+import { render, screen } from 'utils/test-utils';
 
 import Auth from '.';
 
 describe('<Auth />', () => {
   it('should render the logos, title, subtitle, footer and children', () => {
     const authTitle = 'Title';
-    renderWithTheme(
+    render(
       <Auth title={authTitle}>
         <input type="text" />
       </Auth>

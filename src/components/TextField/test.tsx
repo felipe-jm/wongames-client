@@ -1,32 +1,31 @@
 import { Email } from '@styled-icons/material-outlined/Email';
-import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithTheme } from 'utils/tests/helpers';
+import { screen, render, waitFor } from 'utils/test-utils';
 
 import TextField from '.';
 
 describe('<TextField />', () => {
   it('should render with label', () => {
-    renderWithTheme(<TextField label="I'm a label" name="Label" />);
+    render(<TextField label="I'm a label" name="Label" />);
 
     expect(screen.getByLabelText("I'm a label")).toBeInTheDocument();
   });
 
   it('should render without label', () => {
-    renderWithTheme(<TextField />);
+    render(<TextField />);
 
     expect(screen.queryByLabelText("I'm a label")).not.toBeInTheDocument();
   });
 
   it('should render with placeholder', () => {
-    renderWithTheme(<TextField placeholder="Just holding" />);
+    render(<TextField placeholder="Just holding" />);
 
     expect(screen.getByPlaceholderText('Just holding')).toBeInTheDocument();
   });
 
   it('should render with icon', () => {
-    renderWithTheme(
+    render(
       <TextField
         placeholder="Just holding"
         icon={<Email data-testid="icon" />}
@@ -37,7 +36,7 @@ describe('<TextField />', () => {
   });
 
   it('should render with icon on the right side', () => {
-    renderWithTheme(
+    render(
       <TextField icon={<Email data-testid="icon" />} iconPosition="right" />
     );
 
@@ -46,7 +45,7 @@ describe('<TextField />', () => {
 
   it('should be disabled', async () => {
     const onInput = jest.fn();
-    renderWithTheme(<TextField disabled />);
+    render(<TextField disabled />);
 
     const input = screen.getByRole('textbox');
     expect(input).toBeDisabled();
@@ -62,9 +61,7 @@ describe('<TextField />', () => {
 
   it('should change its value when typing', async () => {
     const onInput = jest.fn();
-    renderWithTheme(
-      <TextField onInput={onInput} label="I'm a label" name="Label" />
-    );
+    render(<TextField onInput={onInput} label="I'm a label" name="Label" />);
 
     const input = screen.getByRole('textbox');
     const text = "I'm a text";
@@ -79,7 +76,7 @@ describe('<TextField />', () => {
   });
 
   it('should render with error', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <TextField
         label="TextField"
         name="Label"
@@ -93,7 +90,7 @@ describe('<TextField />', () => {
   });
 
   it('should be accessible using tab key', async () => {
-    renderWithTheme(<TextField label="I'm a label" name="Label" />);
+    render(<TextField label="I'm a label" name="Label" />);
 
     const input = screen.getByRole('textbox');
     expect(document.body).toHaveFocus();
