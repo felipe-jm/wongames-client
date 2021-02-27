@@ -17,7 +17,7 @@ export const parseQueryStringToWhere = ({
   Object.keys(queryString)
     .filter((item) => item !== 'sort')
     .forEach((key) => {
-      const item = filterItems.find((item) => item.name === key);
+      const item = filterItems?.find((item) => item.name === key);
       const isCheckbox = item?.type === 'checkbox';
 
       obj[key] = !isCheckbox
@@ -36,7 +36,7 @@ export const parseQueryStringToFilter = ({
   const obj: any = {};
 
   Object.keys(queryString).forEach((key) => {
-    const item = filterItems.find((item) => item.name === key);
+    const item = filterItems?.find((item) => item.name === key);
     const isCheckbox = item?.type === 'checkbox';
     const isArray = Array.isArray(queryString[key]);
 
