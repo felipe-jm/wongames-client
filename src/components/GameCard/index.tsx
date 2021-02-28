@@ -2,13 +2,9 @@ import Link from 'next/link';
 
 import { useMemo } from 'react';
 
-import {
-  AddShoppingCart,
-  Favorite,
-  FavoriteBorder
-} from '@styled-icons/material-outlined';
+import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined';
 
-import Button from 'components/Button';
+import CartButton from 'components/CartButton';
 import Ribbon, { RibbonSizes, RibbonColors } from 'components/Ribbon';
 
 import formatPrice from 'utils/formatPrice';
@@ -16,6 +12,7 @@ import formatPrice from 'utils/formatPrice';
 import * as S from './styles';
 
 export type GameCardProps = {
+  id: string;
   slug: string;
   title: string;
   developer: string;
@@ -30,6 +27,7 @@ export type GameCardProps = {
 };
 
 const GameCard: React.FC<GameCardProps> = ({
+  id,
   slug,
   title,
   developer,
@@ -89,10 +87,9 @@ const GameCard: React.FC<GameCardProps> = ({
                 <S.Price isPromotional>{formatPrice(price)}</S.Price>
               )}
               <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
+              <CartButton id={id} />
             </>
           )}
-
-          <Button icon={<AddShoppingCart />} size="small" />
         </S.BuyBox>
       </S.Content>
     </S.Wrapper>

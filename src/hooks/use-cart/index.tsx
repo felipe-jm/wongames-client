@@ -37,7 +37,7 @@ export const CartContextDefaultValues = {
   loading: false
 };
 
-export const cartContext = createContext<CartContextData>(
+export const CartContext = createContext<CartContextData>(
   CartContextDefaultValues
 );
 
@@ -86,7 +86,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const clearCart = () => saveCart([]);
 
   return (
-    <cartContext.Provider
+    <CartContext.Provider
       value={{
         items: cartMapper(data?.games),
         quantity: cartItems.length,
@@ -99,10 +99,10 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       }}
     >
       {children}
-    </cartContext.Provider>
+    </CartContext.Provider>
   );
 };
 
-const useCart = () => useContext(cartContext);
+const useCart = () => useContext(CartContext);
 
 export { CartProvider, useCart };

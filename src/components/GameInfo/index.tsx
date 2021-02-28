@@ -1,9 +1,7 @@
-import {
-  AddShoppingCart,
-  FavoriteBorder
-} from '@styled-icons/material-outlined';
+import { FavoriteBorder } from '@styled-icons/material-outlined';
 
 import Button from 'components/Button';
+import CartButton from 'components/CartButton';
 import Heading from 'components/Heading';
 import Ribbon from 'components/Ribbon';
 
@@ -12,12 +10,18 @@ import formatPrice from 'utils/formatPrice';
 import * as S from './styles';
 
 export type GameInfoProps = {
+  id: string;
   title: string;
   description: string;
   price: number;
 };
 
-const GameInfo: React.FC<GameInfoProps> = ({ title, description, price }) => (
+const GameInfo: React.FC<GameInfoProps> = ({
+  id,
+  title,
+  description,
+  price
+}) => (
   <S.Wrapper>
     <Heading color="black" lineBottom>
       {title}
@@ -28,9 +32,7 @@ const GameInfo: React.FC<GameInfoProps> = ({ title, description, price }) => (
     <S.Description>{description}</S.Description>
 
     <S.ButtonsWrapper>
-      <Button icon={<AddShoppingCart />} size="large">
-        Add to Cart
-      </Button>
+      <CartButton id={id} size="large" hasText />
       <Button icon={<FavoriteBorder />} size="large" minimal>
         Add to Wishlist
       </Button>
