@@ -39,7 +39,7 @@ const CartList: React.FC<CartListProps> = ({ hasButton = false }) => {
             <S.Total>{total}</S.Total>
 
             {hasButton && (
-              <Link href="/cart" passHref>
+              <Link href="/cart">
                 <Button as="a">Buy it now</Button>
               </Link>
             )}

@@ -87,9 +87,9 @@ const GameCard: React.FC<GameCardProps> = ({
                 <S.Price isPromotional>{formatPrice(price)}</S.Price>
               )}
               <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
-              <CartButton id={id} />
             </>
           )}
+          <CartButton id={id} />
         </S.BuyBox>
       </S.Content>
     </S.Wrapper>
