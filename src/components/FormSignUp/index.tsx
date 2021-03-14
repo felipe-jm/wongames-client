@@ -76,10 +76,10 @@ const FormSignUp: React.FC = () => {
         />
 
         <TextField
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
-          onInputChange={(value) => handleInput('confirm-password', value)}
+          onInputChange={(value) => handleInput('confirm_password', value)}
           icon={<Lock />}
         />
 
