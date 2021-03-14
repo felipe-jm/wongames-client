@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/client';
 import Link from 'next/link';
 
 import React, { useState } from 'react';
@@ -17,9 +18,18 @@ const FormSignUp: React.FC = () => {
     email: '',
     password: ''
   });
-  const [loading, setLoading] = useState(false);
 
-  const [createUser] = useMutation(MUTATION_REGISTER);
+  const [createUser, { error, loading }] = useMutation(MUTATION_REGISTER, {
+    onError: (err) => console.error(err),
+    onCompleted: () => {
+      !error &&
+        signIn('credentials', {
+          email: values.email,
+          password: values.password,
+          callbackUrl: '/'
+        });
+    }
+  });
 
   const handleInput = (field: string, value: string) => {
     setValues((oldValues) => ({ ...oldValues, [field]: value }));
@@ -27,8 +37,6 @@ const FormSignUp: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
-    setLoading(true);
 
     createUser({
       variables: {
@@ -39,8 +47,6 @@ const FormSignUp: React.FC = () => {
         }
       }
     });
-
-    setLoading(false);
   };
 
   return (
@@ -91,4 +97,5 @@ const FormSignUp: React.FC = () => {
     </FormWrapper>
   );
 };
+
 export default FormSignUp;
