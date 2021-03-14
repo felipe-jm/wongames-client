@@ -1,3 +1,4 @@
+import { signOut } from 'next-auth/client';
 import Link from 'next/link';
 
 import {
@@ -42,12 +43,10 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ activeLink }) => (
       </S.Link>
     </Link>
 
-    <Link href="/profile/logout" passHref>
-      <S.Link title="Sign out">
-        <ExitToApp size={24} />
-        <span>Sign out</span>
-      </S.Link>
-    </Link>
+    <S.Link role="button" onClick={() => signOut()}>
+      <ExitToApp size={24} title="Sign out" />
+      <span>Sign out</span>
+    </S.Link>
   </S.Nav>
 );
 
