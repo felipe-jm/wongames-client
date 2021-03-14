@@ -15,8 +15,6 @@ import { FieldErrors, signInValidate } from 'utils/validations';
 import * as S from './styles';
 
 const FormSignIn: React.FC = () => {
-  const { push } = useRouter();
-
   const [formError, setFormError] = useState('');
   const [fieldError, setFieldError] = useState<FieldErrors>({});
   const [values, setValues] = useState({
@@ -24,6 +22,9 @@ const FormSignIn: React.FC = () => {
     password: ''
   });
   const [loading, setLoading] = useState(false);
+
+  const routes = useRouter();
+  const { push, query } = routes;
 
   const handleInput = (field: string, value: string) => {
     setValues((oldValues) => ({ ...oldValues, [field]: value }));
@@ -46,7 +47,7 @@ const FormSignIn: React.FC = () => {
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
-      callbackUrl: '/'
+      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
     });
 
     if (result?.url) {
@@ -55,7 +56,7 @@ const FormSignIn: React.FC = () => {
 
     setLoading(false);
 
-    setFormError('username of password is invalid');
+    setFormError('username or password is invalid');
   };
 
   return (
