@@ -1,10 +1,11 @@
 import galleryMock from 'components/Gallery/mock';
 import gamesMock from 'components/GameCardSlider/mock';
+import { GameDetailsProps } from 'components/GameDetails';
 import gameDetailsMock from 'components/GameDetails/mock';
 import gameInfoMock from 'components/GameInfo/mock';
 import highlightMock from 'components/Highlight/mock';
 
-import { screen, render } from 'utils/test-utils';
+import { render, screen } from 'utils/test-utils';
 
 import Game, { GameTemplateProps } from '.';
 
@@ -13,13 +14,20 @@ const props: GameTemplateProps = {
   gameInfo: gameInfoMock,
   gallery: galleryMock,
   description: `<h1>Custom HTML</h1>`,
-  details: gameDetailsMock,
-  upcomingTitle: 'Upcoming',
+  details: gameDetailsMock as GameDetailsProps,
+  upcomingTitle: 'Upcoming games',
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
-  recommendedTitle: 'Recommended',
+  recommendedTitle: 'You may like these games',
   recommendedGames: gamesMock
 };
+
+jest.mock('templates/Base', () => ({
+  __esModule: true,
+  default: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="Mock Base">{children}</div>;
+  }
+}));
 
 jest.mock('components/Menu', () => ({
   __esModule: true,
@@ -75,15 +83,17 @@ describe('<Game />', () => {
   it('should not render the gallery on mobile', () => {
     render(<Game {...props} />);
 
-    const gallerySection = screen.getByTestId('Mock Gallery').parentElement;
-
-    expect(gallerySection).toHaveStyle({
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyle({
       display: 'none'
     });
 
-    expect(gallerySection).toHaveStyleRule('display', 'block', {
-      media: '(min-width: 768px)'
-    });
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyleRule(
+      'display',
+      'block',
+      {
+        media: '(min-width: 768px)'
+      }
+    );
   });
 
   it('should render the cover image', () => {

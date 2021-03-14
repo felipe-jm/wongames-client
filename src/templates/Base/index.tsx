@@ -8,14 +8,11 @@ import * as S from './styles';
 
 const Base: React.FC = ({ children }) => {
   const [session] = useSession();
-  {
-    console.log(session);
-  }
 
   return (
     <S.Wrapper>
       <Container>
-        <Menu username={session?.user.name} />
+        <Menu username={session?.user?.name} />
       </Container>
 
       <S.Content>{children}</S.Content>
