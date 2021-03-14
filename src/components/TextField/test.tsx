@@ -44,7 +44,7 @@ describe('<TextField />', () => {
   });
 
   it('should be disabled', async () => {
-    const onInput = jest.fn();
+    const onInputChange = jest.fn();
     render(<TextField disabled />);
 
     const input = screen.getByRole('textbox');
@@ -56,12 +56,18 @@ describe('<TextField />', () => {
     await waitFor(() => {
       expect(input).not.toHaveValue(text);
     });
-    expect(onInput).not.toHaveBeenCalled();
+    expect(onInputChange).not.toHaveBeenCalled();
   });
 
   it('should change its value when typing', async () => {
-    const onInput = jest.fn();
-    render(<TextField onInput={onInput} label="I'm a label" name="Label" />);
+    const onInputChange = jest.fn();
+    render(
+      <TextField
+        onInputChange={onInputChange}
+        label="I'm a label"
+        name="Label"
+      />
+    );
 
     const input = screen.getByRole('textbox');
     const text = "I'm a text";
@@ -69,10 +75,10 @@ describe('<TextField />', () => {
 
     await waitFor(() => {
       expect(input).toHaveValue(text);
-      expect(onInput).toHaveBeenCalledTimes(text.length);
+      expect(onInputChange).toHaveBeenCalledTimes(text.length);
     });
 
-    expect(onInput).toHaveBeenCalledWith(text);
+    expect(onInputChange).toHaveBeenCalledWith(text);
   });
 
   it('should render with error', () => {

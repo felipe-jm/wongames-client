@@ -154,8 +154,8 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               class="c5"
-              placeholder="Name"
-              type="name"
+              placeholder="Username"
+              type="text"
               value=""
             />
           </div>
@@ -278,6 +278,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
         </div>
         <button
           class="c6 c7"
+          type="submit"
         >
           <span>
             Sign up now

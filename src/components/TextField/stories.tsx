@@ -14,7 +14,7 @@ export default {
     placeholder: 'felipemattoseu@gmail.com'
   },
   argTypes: {
-    onInput: { action: 'changed' },
+    onInputChange: { action: 'changed' },
     icon: { type: '' }
   }
 } as Meta<TextFieldProps>;

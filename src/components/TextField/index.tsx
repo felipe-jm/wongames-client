@@ -3,7 +3,7 @@ import { ChangeEvent, InputHTMLAttributes, useCallback, useState } from 'react';
 import * as S from './styles';
 
 export type TextFieldProps = {
-  onInput?: (value: string) => void;
+  onInputChange?: (value: string) => void;
   label?: string;
   initialValue?: string;
   icon?: React.ReactNode;
@@ -13,7 +13,7 @@ export type TextFieldProps = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const TextField: React.FC<TextFieldProps> = ({
-  onInput,
+  onInputChange,
   label,
   name,
   initialValue = '',
@@ -30,9 +30,9 @@ const TextField: React.FC<TextFieldProps> = ({
       const newValue = e.currentTarget.value;
       setValue(newValue);
 
-      !!onInput && onInput(newValue);
+      !!onInputChange && onInputChange(newValue);
     },
-    [onInput]
+    [onInputChange]
   );
 
   return (
