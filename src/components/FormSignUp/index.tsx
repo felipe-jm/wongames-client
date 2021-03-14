@@ -8,7 +8,7 @@ import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes';
 import { MUTATION_REGISTER } from 'graphql/mutations/register';
 
 import Button from 'components/Button';
-import { FormWrapper, FormLink } from 'components/Form';
+import { FormWrapper, FormLink, FormLoading } from 'components/Form';
 import TextField from 'components/TextField';
 
 const FormSignUp: React.FC = () => {
@@ -17,6 +17,7 @@ const FormSignUp: React.FC = () => {
     email: '',
     password: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const [createUser] = useMutation(MUTATION_REGISTER);
 
@@ -27,6 +28,8 @@ const FormSignUp: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
+    setLoading(true);
+
     createUser({
       variables: {
         input: {
@@ -36,6 +39,8 @@ const FormSignUp: React.FC = () => {
         }
       }
     });
+
+    setLoading(false);
   };
 
   return (
@@ -72,8 +77,8 @@ const FormSignUp: React.FC = () => {
           icon={<Lock />}
         />
 
-        <Button type="submit" size="large" fullWidth>
-          Sign up now
+        <Button type="submit" size="large" fullWidth disabled={loading}>
+          {loading ? <FormLoading /> : <span>Sign up now</span>}
         </Button>
 
         <FormLink>
