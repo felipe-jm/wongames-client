@@ -1,11 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import NextAuth, { InitOptions } from 'next-auth';
-import { GenericObject } from 'next-auth/_utils';
+import NextAuth from 'next-auth';
+import {
+  GenericObject,
+  NextApiRequest,
+  NextApiResponse
+} from 'next-auth/_utils';
 import Providers from 'next-auth/providers';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-const options: InitOptions = {
+const options = {
   pages: {
     signIn: '/sign-in'
   },
@@ -14,10 +15,13 @@ const options: InitOptions = {
       name: 'Sign-in',
       credentials: {},
       async authorize({ email, password }) {
-        const response = await fetch(`${apiUrl}/auth/local`, {
-          method: 'POST',
-          body: new URLSearchParams({ identifier: email, password })
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
+          {
+            method: 'POST',
+            body: new URLSearchParams({ identifier: email, password })
+          }
+        );
 
         const data = await response.json();
 
