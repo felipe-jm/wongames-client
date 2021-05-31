@@ -65,17 +65,21 @@ describe('<Button />', () => {
       color: '#F231A5'
     });
 
-    expect(
-      screen.getByRole('button', { name: /buy now/i })
-    ).toHaveStyleRule('background', 'none', { modifier: ':hover' });
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'background',
+      'none',
+      { modifier: ':hover' }
+    );
   });
 
   it('should render a disabled button', () => {
     render(<Button disabled>Buy Now</Button>);
 
-    expect(
-      screen.getByRole('button', { name: /buy now/i })
-    ).toHaveStyleRule('cursor', 'not-allowed', { modifier: ':disabled' });
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'cursor',
+      'not-allowed',
+      { modifier: ':disabled' }
+    );
   });
 
   it('should render Button as a link', () => {

@@ -30,8 +30,9 @@ describe('<TextContent />', () => {
   it('should render the component styles correctly in desktop and mobile', () => {
     render(<TextContent {...props} />);
 
-    const wrapper = screen.getByRole('heading', { name: /description/i })
-      .parentElement;
+    const wrapper = screen.getByRole('heading', {
+      name: /description/i
+    }).parentElement;
 
     expect(wrapper).toHaveStyle({
       color: '#FAFAFA'

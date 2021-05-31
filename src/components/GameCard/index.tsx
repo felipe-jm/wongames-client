@@ -40,10 +40,10 @@ const GameCard: React.FC<GameCardProps> = ({
   ribbonColor = 'primary',
   onFav
 }) => {
-  const isFree = useMemo(() => price === 0 || promotionalPrice === 0, [
-    price,
-    promotionalPrice
-  ]);
+  const isFree = useMemo(
+    () => price === 0 || promotionalPrice === 0,
+    [price, promotionalPrice]
+  );
 
   return (
     <S.Wrapper>

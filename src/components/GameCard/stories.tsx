@@ -10,8 +10,7 @@ export default {
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img:
-      'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
+    img: 'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
     price: 235
   },
   argTypes: {
@@ -45,8 +44,7 @@ export const WithPromotionalPrice: Story<GameCardProps> = (args) => (
 WithPromotionalPrice.args = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
-  img:
-    'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
+  img: 'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
   price: 235,
   promotionalPrice: 200
 };
@@ -60,8 +58,7 @@ export const WithRibbon: Story<GameCardProps> = (args) => (
 WithRibbon.args = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
-  img:
-    'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
+  img: 'https://images.unsplash.com/photo-1574092403000-ef9c803b84bb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80',
   price: 235,
   ribbon: '20% OFF'
 };
