@@ -62,11 +62,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const [game] = data.games;
 
   // query recommended games
-  const {
-    data: recommendedSection
-  } = await apolloClient.query<QueryRecommended>({
-    query: QUERY_RECOMMENDED
-  });
+  const { data: recommendedSection } =
+    await apolloClient.query<QueryRecommended>({
+      query: QUERY_RECOMMENDED
+    });
 
   // query upcoming games and highlight
   const TODAY = new Date().toISOString().slice(0, 10);
