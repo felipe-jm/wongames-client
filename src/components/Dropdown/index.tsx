@@ -7,7 +7,7 @@ export type DropdownProps = {
   children: React.ReactNode;
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ title, children }) => {
+const Dropdown = ({ title, children }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

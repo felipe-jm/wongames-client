@@ -45,7 +45,7 @@ export type CartProviderProps = {
   children: React.ReactNode;
 };
 
-const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<string[]>([]);
 
   useEffect(() => {

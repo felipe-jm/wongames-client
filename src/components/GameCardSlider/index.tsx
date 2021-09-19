@@ -49,10 +49,7 @@ const settings: SliderSettings = {
   prevArrow: <ArrowLeft aria-label="previous games" />
 };
 
-const GameCardSlider: React.FC<GameCardSliderProps> = ({
-  items,
-  color = 'black'
-}) => (
+const GameCardSlider = ({ items, color = 'black' }: GameCardSliderProps) => (
   <S.Wrapper color={color}>
     <Slider settings={settings}>
       {items.map((item, index) => (

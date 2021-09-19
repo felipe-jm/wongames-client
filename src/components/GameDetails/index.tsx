@@ -18,14 +18,14 @@ export type GameDetailsProps = {
   genres: string[];
 };
 
-const GameDetails: React.FC<GameDetailsProps> = ({
+const GameDetails = ({
   developer,
   publisher,
   releaseDate,
   platforms,
   rating,
   genres
-}) => {
+}: GameDetailsProps) => {
   const platformIcons = {
     linux: <Linux title="Linux" size={18} />,
     mac: <Apple title="Mac" size={18} />,

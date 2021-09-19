@@ -24,7 +24,7 @@ export type HomeTemplateProps = {
   freeHighlight: HighlightProps;
 };
 
-const Home: React.FC<HomeTemplateProps> = ({
+const Home = ({
   banners,
   newGamesTitle,
   newGames,
@@ -37,7 +37,7 @@ const Home: React.FC<HomeTemplateProps> = ({
   freeGamesTitle,
   freeGames,
   freeHighlight
-}) => (
+}: HomeTemplateProps) => (
   <Base>
     <Container>
       <S.SectionBanner>

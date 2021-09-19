@@ -8,7 +8,11 @@ import ProfileMenu, { ProfileLinks } from 'components/ProfileMenu';
 
 import * as S from './styles';
 
-const Profile: React.FC = ({ children }) => {
+type ProfileTemplateProps = {
+  children: React.ReactNode;
+};
+
+const Profile = ({ children }: ProfileTemplateProps) => {
   const { asPath } = useRouter();
 
   return (

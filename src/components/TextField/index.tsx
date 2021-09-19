@@ -12,7 +12,7 @@ export type TextFieldProps = {
   error?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const TextField: React.FC<TextFieldProps> = ({
+const TextField = ({
   onInputChange,
   label,
   name,
@@ -22,7 +22,7 @@ const TextField: React.FC<TextFieldProps> = ({
   disabled = false,
   error,
   ...props
-}) => {
+}: TextFieldProps) => {
   const [value, setValue] = useState(initialValue);
 
   const onChange = useCallback(

@@ -20,7 +20,7 @@ export type ProfileMenuProps = {
   activeLink?: ProfileLinks;
 };
 
-const ProfileMenu: React.FC<ProfileMenuProps> = ({ activeLink }) => (
+const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
   <S.Nav>
     <Link href={ProfileLinks.Me} passHref>
       <S.Link isActive={activeLink === ProfileLinks.Me} title="My profile">

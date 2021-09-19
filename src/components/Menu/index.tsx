@@ -19,7 +19,7 @@ export type MenuProps = {
   username?: string | null;
 };
 
-const Menu: React.FC<MenuProps> = ({ username }) => {
+const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

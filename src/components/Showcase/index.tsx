@@ -12,12 +12,12 @@ export type ShowcaseProps = {
   color?: 'black' | 'white';
 };
 
-const Showcase: React.FC<ShowcaseProps> = ({
+const Showcase = ({
   title,
   highlight,
   games,
   color = 'white'
-}) => (
+}: ShowcaseProps) => (
   <S.Wrapper>
     {!!title && (
       <Heading lineLeft lineColor="secondary">

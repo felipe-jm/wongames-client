@@ -13,7 +13,7 @@ export type CartListProps = {
   hasButton?: boolean;
 };
 
-const CartList: React.FC<CartListProps> = ({ hasButton = false }) => {
+const CartList = ({ hasButton = false }: CartListProps) => {
   const { items, total, loading } = useCart();
 
   if (loading) {

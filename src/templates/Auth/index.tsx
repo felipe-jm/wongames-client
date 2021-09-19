@@ -10,7 +10,7 @@ type AuthProps = {
   children: React.ReactNode;
 };
 
-const Auth: React.FC<AuthProps> = ({ title, children }) => (
+const Auth = ({ title, children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>

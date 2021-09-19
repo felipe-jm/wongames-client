@@ -16,12 +16,12 @@ export type WishlistTemplateProps = {
   recommendedHighlight: HighlightProps;
 };
 
-const Wishlist: React.FC<WishlistTemplateProps> = ({
+const Wishlist = ({
   games,
   recommendedTitle,
   recommendedGames,
   recommendedHighlight
-}) => (
+}: WishlistTemplateProps) => (
   <Base>
     <Container>
       <Heading lineLeft lineColor="secondary">

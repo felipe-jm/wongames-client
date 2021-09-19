@@ -11,11 +11,11 @@ type CartButtonProps = {
   hasText?: boolean;
 } & Pick<ButtonProps, 'size'>;
 
-const CartButton: React.FC<CartButtonProps> = ({
+const CartButton = ({
   id,
   size = 'small',
   hasText = false
-}) => {
+}: CartButtonProps) => {
   const { isInCart, addToCart, removeFromCart } = useCart();
   const buttonText = isInCart(id) ? 'Remove from cart' : 'Add to cart';
 

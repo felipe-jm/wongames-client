@@ -62,7 +62,7 @@ export type GalleryProps = {
   items: GalleryImageProps[];
 };
 
-const Gallery: React.FC<GalleryProps> = ({ items }) => {
+const Gallery = ({ items }: GalleryProps) => {
   const slider = useRef<SlickSlider>(null);
   const [isOpen, setIsOpen] = useState(false);
 

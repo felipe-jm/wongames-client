@@ -11,7 +11,7 @@ export type CheckboxProps = {
   value?: string | ReadonlyArray<string> | number;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox = ({
   isChecked = false,
   onCheck,
   label,
@@ -19,7 +19,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   labelColor = 'white',
   value,
   ...props
-}) => {
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
 
   const onChange = useCallback(() => {

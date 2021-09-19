@@ -5,7 +5,7 @@ import Logo from 'components/Logo';
 
 import { Wrapper, Content, Column, Copyright } from './styles';
 
-const Footer: React.FC = () => (
+const Footer = () => (
   <Wrapper>
     <Logo color="black" />
     <Content aria-label="Footer">

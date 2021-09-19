@@ -11,14 +11,14 @@ export type HeadingProps = {
   size?: 'small' | 'medium' | 'huge';
 };
 
-const Heading: React.FC<HeadingProps> = ({
+const Heading = ({
   children,
   color = 'white',
   lineLeft = false,
   lineBottom = false,
   lineColor = 'primary',
   size = 'medium'
-}) => (
+}: HeadingProps) => (
   <Wrapper
     color={color}
     lineLeft={lineLeft}

@@ -16,12 +16,7 @@ export type GameInfoProps = {
   price: number;
 };
 
-const GameInfo: React.FC<GameInfoProps> = ({
-  id,
-  title,
-  description,
-  price
-}) => (
+const GameInfo = ({ id, title, description, price }: GameInfoProps) => (
   <S.Wrapper>
     <Heading color="black" lineBottom>
       {title}

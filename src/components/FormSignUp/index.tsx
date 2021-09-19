@@ -19,7 +19,7 @@ import TextField from 'components/TextField';
 
 import { FieldErrors, signUpValidate } from 'utils/validations';
 
-const FormSignUp: React.FC = () => {
+const FormSignUp = () => {
   const [formError, setFormError] = useState('');
   const [fieldError, setFieldError] = useState<FieldErrors>({});
   const [values, setValues] = useState<UsersPermissionsRegisterInput>({

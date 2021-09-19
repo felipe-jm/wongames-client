@@ -21,7 +21,7 @@ export type GamesTemplateProps = {
   filterItems: ItemProps[];
 };
 
-const GamesTemplate: React.FC<GamesTemplateProps> = ({ filterItems }) => {
+const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter();
 
   const { data, loading, fetchMore } = useQueryGames({

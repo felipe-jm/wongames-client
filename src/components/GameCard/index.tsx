@@ -26,7 +26,7 @@ export type GameCardProps = {
   onFav?: () => void;
 };
 
-const GameCard: React.FC<GameCardProps> = ({
+const GameCard = ({
   id,
   slug,
   title,
@@ -39,7 +39,7 @@ const GameCard: React.FC<GameCardProps> = ({
   ribbonSize = 'small',
   ribbonColor = 'primary',
   onFav
-}) => {
+}: GameCardProps) => {
   const isFree = useMemo(
     () => price === 0 || promotionalPrice === 0,
     [price, promotionalPrice]

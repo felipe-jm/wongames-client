@@ -8,7 +8,7 @@ export type OrdersListProps = {
   items?: GameItemProps[];
 };
 
-const OrdersList: React.FC<OrdersListProps> = ({ items }) => (
+const OrdersList = ({ items }: OrdersListProps) => (
   <S.Wrapper>
     <Heading lineBottom lineColor="primary" color="black" size="small">
       My orders

@@ -14,7 +14,7 @@ import { FieldErrors, signInValidate } from 'utils/validations';
 
 import * as S from './styles';
 
-const FormSignIn: React.FC = () => {
+const FormSignIn = () => {
   const [formError, setFormError] = useState('');
   const [fieldError, setFieldError] = useState<FieldErrors>({});
   const [values, setValues] = useState({
@@ -85,7 +85,9 @@ const FormSignIn: React.FC = () => {
           icon={<Lock />}
         />
 
-        <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
+        <Link href="/forgot-password" passHref>
+          <S.ForgotPassword>Forgot your password?</S.ForgotPassword>
+        </Link>
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
           {loading ? <FormLoading /> : <span>Sign in now</span>}

@@ -14,7 +14,7 @@ export type BannerProps = {
   ribbonColor?: RibbonColors;
 };
 
-const Banner: React.FC<BannerProps> = ({
+const Banner = ({
   img,
   title,
   subtitle,
@@ -23,7 +23,7 @@ const Banner: React.FC<BannerProps> = ({
   ribbon,
   ribbonSize = 'normal',
   ribbonColor = 'primary'
-}) => (
+}: BannerProps) => (
   <Wrapper>
     <Image src={img} role="img" aria-label={title} />
 

@@ -16,7 +16,7 @@ export type UserDropdownProps = {
   username: string;
 };
 
-const UserDropdown: React.FC<UserDropdownProps> = ({ username }) => (
+const UserDropdown = ({ username }: UserDropdownProps) => (
   <Dropdown
     title={
       <>

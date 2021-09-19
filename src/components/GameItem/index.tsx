@@ -19,14 +19,14 @@ export type GameItemProps = {
   paymentInfo?: PaymentInfoProps;
 };
 
-const GameItem: React.FC<GameItemProps> = ({
+const GameItem = ({
   id,
   img,
   title,
   price,
   downloadLink,
   paymentInfo
-}) => {
+}: GameItemProps) => {
   const { isInCart, removeFromCart } = useCart();
 
   return (

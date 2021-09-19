@@ -31,11 +31,11 @@ export type ExploreSidebarProps = {
   onFilter: (values: Values) => void;
 };
 
-const ExploreSidebar: React.FC<ExploreSidebarProps> = ({
+const ExploreSidebar = ({
   items,
   initialValues = {},
   onFilter
-}) => {
+}: ExploreSidebarProps) => {
   const [values, setValues] = useState<Values>(initialValues);
   const [isOpen, setIsOpen] = useState(false);
 

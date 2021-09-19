@@ -20,12 +20,12 @@ export type CartTemplateProps = {
 } & CartListProps &
   Pick<PaymentOptionsProps, 'cards'>;
 
-const Cart: React.FC<CartTemplateProps> = ({
+const Cart = ({
   recommendedTitle,
   recommendedGames,
   recommendedHighlight,
   cards
-}) => {
+}: CartTemplateProps) => {
   const handlePayment = useCallback(() => ({}), []);
 
   return (

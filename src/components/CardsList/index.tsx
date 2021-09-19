@@ -7,7 +7,7 @@ export type CardsListProps = {
   cards?: PaymentCard[];
 };
 
-const CardsList: React.FC<CardsListProps> = ({ cards }) => (
+const CardsList = ({ cards }: CardsListProps) => (
   <>
     <Heading lineBottom color="black" size="small">
       My cards
