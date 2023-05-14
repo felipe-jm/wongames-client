@@ -35,7 +35,7 @@
     "@styled-icons/remix-fill": "^10.18.0",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.0",
-    "joi": "^17.4.0",
+    "joi": "^17.9.1",
     "lodash.xor": "^4.5.0",
     "next": "10.2.3",
     "next-auth": "^3.24.0",
